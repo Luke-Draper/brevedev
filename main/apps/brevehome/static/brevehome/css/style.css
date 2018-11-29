@@ -1,0 +1,316 @@
+/* Colors */
+
+/* Generated with SCSS:
+
+$colors: ("brown", #42341e), ("grey-light", #ccc), ("gray-light", #ccc),
+	("grey-dark", #444), ("gray-dark", #444), ("tan-light", #dbab65),
+	("tan-dark", #8f6f42), ("ash-light", #8f816d), ("ash-dark", #5c5346);
+
+@each $color in $colors {
+	.bg-#{nth($color,1)} {
+		background-color: nth($color, 2);
+		border-color: nth($color, 2);
+	}
+	.text-#{nth($color,1)} {
+		color: nth($color, 2);
+	}
+	.btn-#{nth($color,1)} {
+		background-color: nth($color, 2);
+		border-color: nth($color, 2);
+	}
+	.btn-#{nth($color,1)}:active,
+	.btn-#{nth($color,1)}:focus,
+	.btn-#{nth($color,1)}:hover {
+		background-color: darken(nth($color, 2), 7.5%);
+		border-color: darken(nth($color, 2), 7.5%);
+	}
+	.btn-text-#{nth($color,1)} {
+		color: nth($color, 2);
+	}
+	.btn-text-#{nth($color,1)}:active,
+	.btn-text-#{nth($color,1)}:focus,
+	.btn-text-#{nth($color,1)}:hover {
+		color: darken(nth($color, 2), 7.5%);
+	}
+}
+
+*/
+
+.bg-brown {
+	background-color: #42341e;
+	border-color: #42341e;
+}
+
+.text-brown {
+	color: #42341e;
+}
+
+.btn-brown {
+	background-color: #42341e;
+	border-color: #42341e;
+}
+
+.btn-brown:active,
+.btn-brown:focus,
+.btn-brown:hover {
+	background-color: #281f12;
+	border-color: #281f12;
+}
+
+.btn-text-brown {
+	color: #42341e;
+}
+
+.btn-text-brown:active,
+.btn-text-brown:focus,
+.btn-text-brown:hover {
+	color: #281f12;
+}
+
+.bg-grey-light {
+	background-color: #ccc;
+	border-color: #ccc;
+}
+
+.text-grey-light {
+	color: #ccc;
+}
+
+.btn-grey-light {
+	background-color: #ccc;
+	border-color: #ccc;
+}
+
+.btn-grey-light:active,
+.btn-grey-light:focus,
+.btn-grey-light:hover {
+	background-color: #b9b9b9;
+	border-color: #b9b9b9;
+}
+
+.btn-text-grey-light {
+	color: #ccc;
+}
+
+.btn-text-grey-light:active,
+.btn-text-grey-light:focus,
+.btn-text-grey-light:hover {
+	color: #b9b9b9;
+}
+
+.bg-gray-light {
+	background-color: #ccc;
+	border-color: #ccc;
+}
+
+.text-gray-light {
+	color: #ccc;
+}
+
+.btn-gray-light {
+	background-color: #ccc;
+	border-color: #ccc;
+}
+
+.btn-gray-light:active,
+.btn-gray-light:focus,
+.btn-gray-light:hover {
+	background-color: #b9b9b9;
+	border-color: #b9b9b9;
+}
+
+.btn-text-gray-light {
+	color: #ccc;
+}
+
+.btn-text-gray-light:active,
+.btn-text-gray-light:focus,
+.btn-text-gray-light:hover {
+	color: #b9b9b9;
+}
+
+.bg-grey-dark {
+	background-color: #444;
+	border-color: #444;
+}
+
+.text-grey-dark {
+	color: #444;
+}
+
+.btn-grey-dark {
+	background-color: #444;
+	border-color: #444;
+}
+
+.btn-grey-dark:active,
+.btn-grey-dark:focus,
+.btn-grey-dark:hover {
+	background-color: #313131;
+	border-color: #313131;
+}
+
+.btn-text-grey-dark {
+	color: #444;
+}
+
+.btn-text-grey-dark:active,
+.btn-text-grey-dark:focus,
+.btn-text-grey-dark:hover {
+	color: #313131;
+}
+
+.bg-gray-dark {
+	background-color: #444;
+	border-color: #444;
+}
+
+.text-gray-dark {
+	color: #444;
+}
+
+.btn-gray-dark {
+	background-color: #444;
+	border-color: #444;
+}
+
+.btn-gray-dark:active,
+.btn-gray-dark:focus,
+.btn-gray-dark:hover {
+	background-color: #313131;
+	border-color: #313131;
+}
+
+.btn-text-gray-dark {
+	color: #444;
+}
+
+.btn-text-gray-dark:active,
+.btn-text-gray-dark:focus,
+.btn-text-gray-dark:hover {
+	color: #313131;
+}
+
+.bg-tan-light {
+	background-color: #dbab65;
+	border-color: #dbab65;
+}
+
+.text-tan-light {
+	color: #dbab65;
+}
+
+.btn-tan-light {
+	background-color: #dbab65;
+	border-color: #dbab65;
+}
+
+.btn-tan-light:active,
+.btn-tan-light:focus,
+.btn-tan-light:hover {
+	background-color: #d49a46;
+	border-color: #d49a46;
+}
+
+.btn-text-tan-light {
+	color: #dbab65;
+}
+
+.btn-text-tan-light:active,
+.btn-text-tan-light:focus,
+.btn-text-tan-light:hover {
+	color: #d49a46;
+}
+
+.bg-tan-dark {
+	background-color: #8f6f42;
+	border-color: #8f6f42;
+}
+
+.text-tan-dark {
+	color: #8f6f42;
+}
+
+.btn-tan-dark {
+	background-color: #8f6f42;
+	border-color: #8f6f42;
+}
+
+.btn-tan-dark:active,
+.btn-tan-dark:focus,
+.btn-tan-dark:hover {
+	background-color: #755b36;
+	border-color: #755b36;
+}
+
+.btn-text-tan-dark {
+	color: #8f6f42;
+}
+
+.btn-text-tan-dark:active,
+.btn-text-tan-dark:focus,
+.btn-text-tan-dark:hover {
+	color: #755b36;
+}
+
+.bg-ash-light {
+	background-color: #8f816d;
+	border-color: #8f816d;
+}
+
+.text-ash-light {
+	color: #8f816d;
+}
+
+.btn-ash-light {
+	background-color: #8f816d;
+	border-color: #8f816d;
+}
+
+.btn-ash-light:active,
+.btn-ash-light:focus,
+.btn-ash-light:hover {
+	background-color: #796d5c;
+	border-color: #796d5c;
+}
+
+.btn-text-ash-light {
+	color: #8f816d;
+}
+
+.btn-text-ash-light:active,
+.btn-text-ash-light:focus,
+.btn-text-ash-light:hover {
+	color: #796d5c;
+}
+
+.bg-ash-dark {
+	background-color: #5c5346;
+	border-color: #5c5346;
+}
+
+.text-ash-dark {
+	color: #5c5346;
+}
+
+.btn-ash-dark {
+	background-color: #5c5346;
+	border-color: #5c5346;
+}
+
+.btn-ash-dark:active,
+.btn-ash-dark:focus,
+.btn-ash-dark:hover {
+	background-color: #463f35;
+	border-color: #463f35;
+}
+
+.btn-text-ash-dark {
+	color: #5c5346;
+}
+
+.btn-text-ash-dark:active,
+.btn-text-ash-dark:focus,
+.btn-text-ash-dark:hover {
+	color: #463f35;
+}
