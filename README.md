@@ -1,6 +1,8 @@
 # Breve Dev
 
-A simple website for organizing meetings and events that makes it easy to find a nearby coffee shop.
+A simple website for organizing developer meetings and events that makes it easy to find a nearby coffee shop.
+
+---
 
 ## Development
 
@@ -51,3 +53,23 @@ git push -u origin HEAD
 Finally submit a pull request to review the code.
 
 ---
+
+## Authors
+
+- **Luke Draper** - [Luke-Draper](https://github.com/Luke-Draper)
+- **Sara Avansari** - [savansari](https://github.com/savansari)
+
+See also the list of [contributors](https://github.com/Luke-Draper/brevedev/contributors) who participated in this project.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+---
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Meetup.com for inspiration
