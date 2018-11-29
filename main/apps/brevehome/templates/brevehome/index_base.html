@@ -7,16 +7,10 @@
 		{% endblock %}
 		{% include "brevehome/head.html" %}
 	</head>
-	<body class="bg-tan-light text-ash-dark">
-		{% include "brevehome/nav.html" %}
-		<div class="main-page-container">
-			<div class="main-page-container-content container-fluid">
-			{% block body %}
-			{% endblock %}
-			</div>
-		<footer class="main-page-container-footer">
-			{% include "brevehome/footer.html" %}
-		</footer>
+	<body class="bg-dark text-light">
+		<div class="container">
+		{% block body %}
+		{% endblock %}
 		</div>
 	</body>
 </html>

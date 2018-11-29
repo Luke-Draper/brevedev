@@ -1,56 +1,45 @@
 {% extends "brevehome/index_base.html" %}
 
-<!-- Home Page -->
-
 {% block meta %}
-<title>Breve Dev - Home</title>
+<title>Title</title>
 <meta name="description" content="Description" />
 {% endblock %}
 
 {% block body %}
-<section class="main-heading-section">
-	<div class="container main-heading">
-		<div class="jumbotron text-tan-light">
-			<h1>Meet Devs, Get Coffee!</h1>
-			<p class="lead">Find a coffee shop and meet developers near you!</p>
-			<hr class="m-4">
-			<a class="btn btn-brown btn-text-tan-light btn-lg main-heading-btn font-weight-bold" href="/signup" role="button">Get Started</a>
+<div class="row p-4 justify-content-center"><h1>Survey Form</h1></div>
+<div class="row justify-content-center">
+	<form
+		class="col-sm-6 bg-secondary p-4 rounded"
+		action="/post"
+		method="post"
+	>
+		{% csrf_token %}
+		<div class="form-row p-2 justify-content-center">
+			<label class="col-sm-4 col-form-label" for="name">Your Name:</label>
+			<input
+				class="col-sm-8 form-control"
+				type="text"
+				name="name"
+				id="name"
+			/>
 		</div>
-	</div>
-</section>
-<section class="info-section text-brown">
-	<div class="container">
-		<div class="row justify-content-around align-items-center">
-			{% load static %}
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/coffee-1.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Find a coffee shop near you!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/bar.jpg" %}" alt="Find a coffee shop.">
-			</div>
+		<div class="form-group p-2 justify-content-center">
+			<label class="form-label" for="comment">Comment (Optional):</label>
+			<textarea
+				class="form-control"
+				name="comment"
+				id="comment"
+				rows="4"
+			></textarea>
 		</div>
-	</div>
-</section>
-<section class="info-section bg-brown text-tan-light">
-	<div class="container">
-		<div class="row justify-content-around flex-row-reverse align-items-center">
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/calendar.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Schedule a meeting!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/table_5.jpg" %}" alt="Find a coffee shop.">
-			</div>
+		<div class="form-row justify-content-end">
+			<input
+				class="col-auto p-2 mr-3 btn btn-dark"
+				type="submit"
+				value="Submit"
+			/>
 		</div>
-	</div>
-</section>
-<section class="info-section text-brown">
-	<div class="container">
-		<div class="row justify-content-around align-items-center">
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/conversation.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Meet with other developers!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/small_group.jpg" %}" alt="Find a coffee shop.">
-			</div>
-		</div>
-	</div>
-</section>
+	</form>
+</div>
 {% endblock %}
 
