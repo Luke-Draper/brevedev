@@ -57,8 +57,8 @@ Finally submit a pull request to review the code.
 ## Authors
 
 - **Luke Draper** - [Luke-Draper](https://github.com/Luke-Draper)
-- **Sara Avansari** - [savansari](https://github.com/savansari)
 - **Jalen Varas** - [varasjalen](https://github.com/varasjalen)
+- **Adam Todd** - [lxswiftxl](https://github.com/lxswiftxl)
 
 See also the list of [contributors](https://github.com/Luke-Draper/brevedev/contributors) who participated in this project.
 
