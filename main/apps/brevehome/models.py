@@ -90,7 +90,6 @@ class User(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=255)
     desc = models.CharField(max_length=1023)
-    email = models.CharField(max_length=255)
     public = models.BooleanField()
     owner = models.ForeignKey(User, related_name='groups_owned')
     invitees = models.ManyToManyField(User, related_name='group_invitations')
