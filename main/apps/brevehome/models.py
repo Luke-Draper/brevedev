@@ -12,6 +12,8 @@ class UserManager(models.Manager):
             errors["last_name"] = "Last Name cannot be empty"
         if len(postData['email']) < 0:
             errors["email"] = "Email cannot be empty"
+        if re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$',postData['email']) == None:
+            errors["email"] = "Email format is invalid"
         if len(postData['password']) < 8:
             errors["password"] = "Password must have at least 8 characters"
         if len(postData['desc']) < 50:
