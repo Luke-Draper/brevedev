@@ -81,6 +81,13 @@ class User(models.Model):
     public = models.BooleanField()
     friends = models.ManyToManyField('self')
     profile_picture = models.BinaryField()
+		DRINK_PREFERENCES = (
+			('C', 'Coffee'),
+			('T', 'Tea'),
+			('S', 'Soft Drink'),
+			('E', 'Something Else'),
+		)
+    drink_preference = models.CharField(max_length=1, choices=DRINK_PREFERENCES, default='C')
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = UserManager()
@@ -94,6 +101,13 @@ class Group(models.Model):
     applicants = models.ManyToManyField(User, related_name='group_applications')
     members = models.ManyToManyField(User, related_name='groups_joined')
     profile_picture = models.BinaryField()
+		EVENT_PREFERENCES = (
+			('B', 'Business'),
+			('C', 'Coding'),
+			('F', 'Fun'),
+			('E', 'Something Else'),
+		)
+    event_preference = models.CharField(max_length=1, choices=EVENT_PREFERENCES, default='C')
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = GroupManager()
@@ -108,6 +122,13 @@ class Event(models.Model):
     invitees = models.ManyToManyField(User, related_name='events_invited')
     possible_attendees = models.ManyToManyField(User, related_name='events_might_attend')
     attendees = models.ManyToManyField(User, related_name='events_attending')
+		EVENT_TYPES = (
+			('B', 'Business'),
+			('C', 'Coding'),
+			('F', 'Fun'),
+			('E', 'Something Else'),
+		)
+    event_type = models.CharField(max_length=1, choices=EVENT_TYPES, default='C')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = EventManager()
