@@ -19,10 +19,17 @@ class CommentManager(models.Manager):
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
+    desc = models.CharField(max_length=1023)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=512)
     birthday = models.DateTimeField()
+    linkedin_url = models.CharField(max_length=255)
+    facebook_url = models.CharField(max_length=255)
+    instagram_url = models.CharField(max_length=255)
+    youtube_url = models.CharField(max_length=255)
+    twitter_url = models.CharField(max_length=255)
+    blog_url = models.CharField(max_length=255)
     public = models.BooleanField()
     friends = models.ManyToManyField('self')
     profile_picture = models.BinaryField()
@@ -32,7 +39,7 @@ class User(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=255)
-    desc = models.CharField(max_length=255)
+    desc = models.CharField(max_length=1023)
     email = models.CharField(max_length=255)
     public = models.BooleanField()
     owner = models.ForeignKey(User, related_name='groups_owned')
