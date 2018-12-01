@@ -3,19 +3,67 @@ from django.db import models
 import re
 
 class UserManager(models.Manager):
-    pass
+    def basic_validator(self, postData):
+        errors = {}
+
+        if len(postData['first_name']) < 0:
+            errors["first_name"] = "First Name cannot be empty"
+        if len(postData['last_name']) < 0:
+            errors["last_name"] = "Last Name cannot be empty"
+        if len(postData['email']) < 0:
+            errors["email"] = "Email cannot be empty"
+        if re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$',postData['email']) == None:
+            errors["email"] = "Email format is invalid"
+        if len(postData['password']) < 8:
+            errors["password"] = "Password must have at least 8 characters"
+        
 
 class GroupManager(models.Manager):
-    pass
+    def basic_validator(self, postData):
+        errors = {}
+
+        if len(postData['name']) < 0:
+            errors["name"] = "Name cannot be empty"
+        if len(postData['desc']) < 50:
+            errors["desc"] = "Description must have at least 50 characters"
+        if len(postData['email']) < 0:
+            errors["email"] = "Email cannot be empty"
 
 class EventManager(models.Manager):
-    pass
+    def basic_validator(self, postData):
+        errors = {}
+
+        if len(postData['name']) < 0:
+            errors["name"] = "Name cannot be empty"
+        if len(postData['desc']) < 50:
+            errors["desc"] = "Description must have at least 50 characters"
+        if postData['capacity'] < 0:
+            errors["capacity"] = "Must include a capacity size"
 
 class LocationManager(models.Manager):
-    pass
+    def basic_validator(self, postData):
+        errors = {}
+
+        if len(postData['name']) < 0:
+            errors["name"] = "Name cannot be empty"
+        if len(postData['street1']) < 50:
+            errors["street1"] = "Address field cannot be empty"
+        if len(postData['city']) < 50:
+            errors["city"] = "City cannot be empty"
+        if len(postData['state']) < 50:
+            errors["state"] = "State cannot be empty"
+        if len(postData['zip_code']) < 50:
+            errors["zip_code"] = "Zip Code cannot be empty"
+        if len(postData['country']) < 50:
+            errors["country"] = "Country cannot be empty"
+        
 
 class CommentManager(models.Manager):
-    pass
+    def basic_validator(self, postData):
+        errors = {}
+
+        if len(postData['content']) < 0:
+            errors["content"] = "Comment cannot be empty"
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
@@ -40,7 +88,6 @@ class User(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=255)
     desc = models.CharField(max_length=1023)
-    email = models.CharField(max_length=255)
     public = models.BooleanField()
     owner = models.ForeignKey(User, related_name='groups_owned')
     invitees = models.ManyToManyField(User, related_name='group_invitations')
