@@ -6,10 +6,6 @@ def index(request):
 	request.session["dummy"] = "dummy"
 	return render(request,"brevehome/index.html")
 
-def redirect(request):
-	del request.session["dummy"]
-	return redirect("/")
-
 def post(request):
 	if request.method == "POST":
 		request.session["name"] = request.POST["name"]
@@ -34,6 +30,18 @@ def test_login(request):
 def test_signup(request):
 	check_session_login(request)
 	return render(request,"brevehome/signup.html")
+
+def test_login_submit(request):
+	request.session["test_logged_in"] = True
+	return redirect("/test/dashboard")
+
+def test_signup_submit(request):
+	request.session["test_logged_in"] = True
+	return redirect("/test/dashboard")
+
+def test_logout(request):
+	request.session["test_logged_in"] = False
+	return redirect("/test")
 
 def test_dashboard(request):
 	check_session_login(request)
