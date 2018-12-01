@@ -19,11 +19,11 @@ class CommentManager(models.Manager):
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
-    desc = models.CharField(max_length=1023)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=512)
     birthday = models.DateTimeField()
+    desc = models.CharField(max_length=1023)
     linkedin_url = models.CharField(max_length=255)
     facebook_url = models.CharField(max_length=255)
     instagram_url = models.CharField(max_length=255)
