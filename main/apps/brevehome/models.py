@@ -66,7 +66,6 @@ class Location(models.Model):
     state = models.CharField(max_length=255)
     zip_code = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
-    public = models.BooleanField()
     event = models.ForeignKey(Event, related_name='location')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
