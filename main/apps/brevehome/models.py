@@ -16,8 +16,6 @@ class UserManager(models.Manager):
             errors["email"] = "Email format is invalid"
         if len(postData['password']) < 8:
             errors["password"] = "Password must have at least 8 characters"
-        if len(postData['desc']) < 50:
-            errors["desc"] = "Description must have at least 50 characters"
         
 
 class GroupManager(models.Manager):
