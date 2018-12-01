@@ -421,7 +421,14 @@ a.text-ash-dark:hover {
 			rgba(66, 52, 30, 0.7)
 		),
 		url("../img/stock/beans.jpg") no-repeat 50% fixed / cover #42341e;
+}
+
+.text-shadow {
 	text-shadow: 1px 2px 4px #000;
+}
+
+.bg-full-page {
+	min-height: 90%;
 }
 
 /* Navigation */

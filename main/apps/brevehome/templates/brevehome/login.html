@@ -1,0 +1,58 @@
+{% extends "brevehome/index_base.html" %}
+
+{% block meta %}
+<title>Breve Dev - Login</title>
+<meta name="description" content="Log in to Breve Dev" />
+{% endblock %}
+
+
+{% block bodytag %}
+<body class="bg-fixed-coffee text-ash-dark">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row justify-content-center my-4">
+		<h2 class="bg-tan-light p-3 text-center rounded">Log In</h2>
+	</div>
+	<div class="row justify-content-center my-4">
+		<form
+			class="col-10 col-sm-8 col-lg-6 bg-tan-light p-4 rounded"
+			action="test/login/submit"
+			method="post"
+		>
+			{% csrf_token %}
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="email">Email</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="text"
+					name="email"
+					id="email"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="password">Password</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="password"
+					name="password"
+					id="password"
+				/>
+			</div>
+			<div class="mt-2 form-row justify-content-center">
+				<input
+					class="col-auto p-2 btn btn-text-tan-light btn-ash-dark"
+					type="submit"
+					value="Log In"
+				/>
+			</div>
+			<hr class="bg-tan-dark"/>
+			<div class="form-row justify-content-center">
+				<a class="col-auto p-2 btn btn-tan-light btn-text-ash-dark btn-sm" href="/test/signup">Need an account?</a>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
