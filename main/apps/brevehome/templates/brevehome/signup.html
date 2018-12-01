@@ -14,7 +14,7 @@
 			<h1>Meet Devs, Get Coffee!</h1>
 			<p class="lead">Find a coffee shop and meet developers near you!</p>
 			<hr class="m-4">
-			<a class="btn btn-brown btn-text-tan-light btn-lg main-heading-btn font-weight-bold" href="/test/signup" role="button">Get Started</a>
+			<a class="btn btn-brown btn-text-tan-light btn-lg main-heading-btn font-weight-bold" href="/signup" role="button">Get Started</a>
 		</div>
 	</div>
 </section>
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 </section>
-<section class="info-section bg-fixed-coffee text-tan-light">
+<section class="info-section bg-brown text-tan-light">
 	<div class="container">
 		<div class="row justify-content-around flex-row-reverse align-items-center">
 			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/calendar.svg" %}" alt="Find a coffee shop.">
@@ -52,5 +52,74 @@
 		</div>
 	</div>
 </section>
+
+
+<div class="container-fluid bg-fixed-coffee">
+	<div class="row justify-content-center">
+		<form
+			class="col-6 bg-translucent p-4 rounded"
+			action="test/signup/submit"
+			method="post"
+		>
+			{% csrf_token %}
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-4 col-form-label" for="first_name">First Name:</label>
+				<input
+					class="col-8 form-control"
+					type="text"
+					name="first_name"
+					id="first_name"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-4 col-form-label" for="last_name">Last Name:</label>
+				<input
+					class="col-8 form-control"
+					type="text"
+					name="last_name"
+					id="last_name"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-4 col-form-label" for="email">Email:</label>
+				<input
+					class="col-8 form-control"
+					type="text"
+					name="email"
+					id="email"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-4 col-form-label" for="password">Password:</label>
+				<input
+					class="col-8 form-control"
+					type="password"
+					name="password"
+					id="password"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-4 col-form-label" for="confirm_password">Confirm Password:</label>
+				<input
+					class="col-8 form-control"
+					type="password"
+					name="confirm_password"
+					id="confirm_password"
+				/>
+			</div>
+			<div class="mt-2 form-row justify-content-center">
+				<input
+					class="col-auto p-2 btn btn-dark"
+					type="submit"
+					value="Register"
+				/>
+			</div>
+			<hr class="bg-light"/>
+			<div class="form-row justify-content-center">
+				<a class="col-auto p-2 btn btn-dark" href="/login">Already signed up?</a>
+			</div>
+		</form>
+	</div>
+</div>
 {% endblock %}
 

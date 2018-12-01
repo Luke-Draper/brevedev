@@ -413,6 +413,17 @@ a.text-ash-dark:hover {
 	color: #463f35 !important;
 }
 
+.bg-fixed-coffee {
+	background: linear-gradient(
+			to right,
+			rgba(66, 52, 30, 0.7),
+			rgba(66, 52, 30, 0.8),
+			rgba(66, 52, 30, 0.7)
+		),
+		url("../img/stock/beans.jpg") no-repeat 50% fixed / cover #42341e;
+	text-shadow: 1px 2px 4px #000;
+}
+
 /* Navigation */
 
 .brand-text {
