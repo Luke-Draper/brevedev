@@ -440,6 +440,11 @@ a.text-ash-dark:hover {
 	height: 2em;
 }
 
+.mx-0 {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
 /* Layout */
 
 .main-page-container {
@@ -506,4 +511,21 @@ a.text-ash-dark:hover {
 		display: block;
 		max-height: 140px;
 	}
+}
+
+.profile-section-image {
+	border-radius: 50%;
+	width: 33vw;
+	height: 33vw;
+	border: 1vw solid #5c5346;
+}
+
+.profile-section-image-parent {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.profile-section-content {
+	margin-top: -10vw !important;
+	padding-top: 10vw !important;
 }

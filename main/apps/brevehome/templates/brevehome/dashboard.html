@@ -3,54 +3,114 @@
 <!-- Home Page -->
 
 {% block meta %}
-<title>Breve Dev - Home</title>
-<meta name="description" content="Description" />
+<title>Breve Dev - Dashboard</title>
+<meta name="description" content="A Breve Dev User Dashboard" />
+{% endblock %}
+
+{% block bodytag %}
+<body class="bg-fixed-coffee text-ash-dark">
 {% endblock %}
 
 {% block body %}
-<section class="main-heading-section">
-	<div class="container main-heading">
-		<div class="jumbotron text-tan-light">
-			<h1>Meet Devs, Get Coffee!</h1>
-			<p class="lead">Find a coffee shop and meet developers near you!</p>
-			<hr class="m-4">
-			<a class="btn btn-brown btn-text-tan-light btn-lg main-heading-btn font-weight-bold" href="/test/signup" role="button">Get Started</a>
-		</div>
-	</div>
-</section>
-<section class="info-section text-brown">
-	<div class="container">
-		<div class="row justify-content-around align-items-center">
-			{% load static %}
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/coffee-1.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Find a coffee shop near you!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/bar.jpg" %}" alt="Find a coffee shop.">
+<div class="container-fluid">
+	<section class="row justify-content-center">
+		<div class="col-8 my-4">
+			<div class="row justify-content-center">
+				<div class="col-6 profile-section-image-parent">
+						{% load static %}
+					<img class="profile-section-image" src="{% static "brevehome/img/stock/small_group.jpg" %}" alt="Find a coffee shop.">
+				</div>
+			</div>
+			<div class="profile-section-content bg-color bg-tan-light p-4 rounded">
+				<div class="row justify-content-center">
+					<h2 class="col-10 text-center mt-4 mb-3">{first_name last_name}</h2>
+					<hr class="col-10 bg-tan-dark"/>
+					<p class="col-10 text-center my-3">{desc} {% lorem 2 %}</p>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<section class="info-section bg-fixed-coffee text-tan-light text-shadow">
-	<div class="container">
-		<div class="row justify-content-around flex-row-reverse align-items-center">
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/calendar.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Schedule a meeting!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/table_5.jpg" %}" alt="Find a coffee shop.">
+	</section>
+	<section class="row justify-content-center">
+		<div class="col-8 my-4">
+			<div class="container bg-color bg-tan-light p-4 rounded">
+				<div class="row justify-content-center">
+					<h3 class="col-10 text-center mt-4 mb-3">Favorite Location</h3>
+					<hr class="col-10 bg-tan-dark"/>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-11">
+						<div class="row justify-content-center">
+							<div class="col-12 col-sm-4">
+								<p>{favorite_location.name}</p>
+								<p>{favorite_location.(address fields)}</p>
+								<p>maybe?{favorite_location.hours}</p>
+								<p>maybe?{favorite_location.website and/or phone}</p>
+							</div>
+							<div class="col-12 col-sm-8 p-4 bg-brown text-tan-light">
+								<p>Placeholder for embedded google map</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<section class="info-section text-brown">
-	<div class="container">
-		<div class="row justify-content-around align-items-center">
-			<img class="col-12 col-sm info-section-icon" src="{% static "brevehome/img/icon/conversation.svg" %}" alt="Find a coffee shop.">
-			<p class="col-12 col-sm text-center my-3">Meet with other developers!</p>
-			<div class="col-12 col-sm">
-				<img class="info-section-image rounded" src="{% static "brevehome/img/stock/small_group.jpg" %}" alt="Find a coffee shop.">
+	</section>
+	<section class="row justify-content-center">
+		<div class="col-8">
+			<div class="row justify-content-between">
+				<div class="col-12 col-md-6 my-4">
+					<div class="container bg-color bg-tan-light p-4 rounded">
+						<div class="row justify-content-center">
+							<h4 class="col-12 col-sm-8 text-center mx-0 my-3">Upcoming Events</h4>
+							<a class="btn btn-sm btn-text-tan-light btn-ash-dark p-2 m-auto" href="/test/search/events">View All</a>
+							<hr class="col-10 bg-tan-dark"/>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<p class="row">{event.name}</p>
+								<p class="row">{event.time}</p>
+								<p class="row">{event.location.name}</p>
+								<p class="row">{event.public}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 my-4">
+					<div class="container bg-color bg-tan-light p-4 rounded">
+						<div class="row justify-content-center">
+							<h4 class="col-12 col-sm-8 text-center mx-0 my-3">Groups</h4>
+							<a class="btn btn-sm btn-text-tan-light btn-ash-dark p-2 m-auto" href="/test/search/groups">View All</a>
+							<hr class="col-10 bg-tan-dark"/>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="row justify-content-around">
+									<p class="col-6">{group.img}</p>
+									<p class="col-6">{group.name}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="row justify-content-around">
+									<p class="col-6">{group.img}</p>
+									<p class="col-6">{group.name}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="row justify-content-around">
+									<p class="col-6">{group.img}</p>
+									<p class="col-6">{group.name}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+</div>
 {% endblock %}
 
