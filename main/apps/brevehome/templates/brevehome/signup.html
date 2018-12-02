@@ -1,0 +1,173 @@
+{% extends "brevehome/index_base.html" %}
+
+{% block meta %}
+<title>Breve Dev - Login</title>
+<meta name="description" content="Log in to Breve Dev" />
+{% endblock %}
+
+
+{% block bodytag %}
+<body class="bg-fixed-coffee text-ash-dark">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row justify-content-center my-4">
+		<h2 class="bg-tan-light p-3 text-center rounded">Sign Up</h2>
+	</div>
+	<div class="row justify-content-center my-4">
+		<form
+			class="col-10 col-sm-8 col-lg-6 bg-tan-light p-4 rounded"
+			action="/test/signup/submit"
+			method="post"
+		>
+			{% csrf_token %}
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="first_name">First Name</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="text"
+					name="first_name"
+					id="first_name"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="last_name">Last Name</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="text"
+					name="last_name"
+					id="last_name"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="email">Email</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="text"
+					name="email"
+					id="email"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center align-items-center">
+				<p class="col-12 col-sm-4" for="beverage_preference">Beverage of Choice</p>
+				<div class="col-12 col-sm-8" id="beverage_preference">
+					<div class="row justify-content-end">
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="beverage_preference"
+								value="C"
+								id="coffee"
+								checked
+							/>
+							<label class="form-check-label" for="coffee"> Coffee</label>
+						</div>
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="beverage_preference"
+								value="S"
+								id="soft"
+							/>
+							<label class="form-check-label" for="soft"> Soft Drinks</label>
+						</div>
+					</div>
+					<div class="row justify-content-end">
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="beverage_preference"
+								value="T"
+								id="tea"
+							/>
+							<label class="form-check-label" for="tea"> Tea</label>
+						</div>
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="beverage_preference"
+								value="E"
+								id="some"
+							/>
+							<label class="form-check-label" for="some"> Something Else</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="birthday">Birthday</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="date"
+					name="birthday"
+					id="birthday"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center align-items-center">
+				<p class="col-12 col-sm-4" for="profile_visibility">Profile Visibility</p>
+				<div class="col-12 col-sm-8" id="profile_visibility">
+					<div class="row justify-content-end">
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="visibility"
+								value="U"
+								id="public"
+								checked
+							/>
+							<label class="form-check-label" for="public"> Public</label>
+						</div>
+						<div class="col-6 row">
+							<input
+								class="form-check-input"
+								type="radio"
+								name="visibility"
+								value="I"
+								id="private"
+							/>
+							<label class="form-check-label" for="private"> Private</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="password">Password</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="password"
+					name="password"
+					id="password"
+				/>
+			</div>
+			<div class="form-row p-2 justify-content-center">
+				<label class="col-12 col-sm-4 col-form-label" for="confirm_password">Confirm Password</label>
+				<input
+					class="col-12 col-sm-8 form-control"
+					type="password"
+					name="confirm_password"
+					id="confirm_password"
+				/>
+			</div>
+			<div class="mt-2 form-row justify-content-center">
+				<input
+					class="col-auto p-2 btn btn-text-tan-light btn-ash-dark"
+					type="submit"
+					value="Log In"
+				/>
+			</div>
+			<hr class="bg-tan-dark"/>
+			<div class="form-row justify-content-center">
+				<a class="col-auto p-2 btn btn-tan-light btn-text-ash-dark btn-sm" href="/test/login">Have an account?</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+

@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-ash-dark">
 		<div class="container">
-			<a class="navbar-brand text-tan-light font-weight-bold" href="/">
+			<a class="navbar-brand text-tan-light font-weight-bold" href="/test">
 				{% load static %}
 				<img src="{% static "brevehome/img/favicon.ico" %}" alt="Breve Dev Logo" class="brand-img">
 				<span class="brand-text">Breve Dev</span>
@@ -11,12 +11,32 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
+					{% if request.session.test_logged_in %}
 					<li class="nav-item mr-3 my-2">
-						<a class="btn btn-tan-light btn-text-ash-dark" href="/login">Log In</a>
+						<a class="btn btn-tan-light btn-text-ash-dark" href="/test/dashboard">Dashboard</a>
 					</li>
 					<li class="nav-item my-2">
-						<a class="btn btn-tan-light btn-text-ash-dark" href="/login">Sign Up</a>
+						<form
+							class="form-inline"
+							action="/test/logout"
+							method="post"
+						>
+							{% csrf_token %}
+							<input
+								class="btn btn-tan-light btn-text-ash-dark"
+								type="submit"
+								value="Log Out"
+							/>
+						</form>
 					</li>
+					{% else %}
+					<li class="nav-item mr-3 my-2">
+						<a class="btn btn-tan-light btn-text-ash-dark" href="/test/login">Log In</a>
+					</li>
+					<li class="nav-item my-2">
+						<a class="btn btn-tan-light btn-text-ash-dark" href="/test/signup">Sign Up</a>
+					</li>
+					{% endif %}
 				</ul>
 			</div>
 		</div>

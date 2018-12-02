@@ -413,6 +413,24 @@ a.text-ash-dark:hover {
 	color: #463f35 !important;
 }
 
+.bg-fixed-coffee {
+	background: linear-gradient(
+			to right,
+			rgba(66, 52, 30, 0.7),
+			rgba(66, 52, 30, 0.8),
+			rgba(66, 52, 30, 0.7)
+		),
+		url("../img/stock/beans.jpg") no-repeat 50% fixed / cover #42341e;
+}
+
+.text-shadow {
+	text-shadow: 1px 2px 4px #000;
+}
+
+.bg-full-page {
+	min-height: 90%;
+}
+
 /* Navigation */
 
 .brand-text {
@@ -420,6 +438,11 @@ a.text-ash-dark:hover {
 }
 .brand-img {
 	height: 2em;
+}
+
+.mx-0 {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 
 /* Layout */
@@ -488,4 +511,21 @@ a.text-ash-dark:hover {
 		display: block;
 		max-height: 140px;
 	}
+}
+
+.profile-section-image {
+	border-radius: 50%;
+	width: 33vw;
+	height: 33vw;
+	border: 1vw solid #5c5346;
+}
+
+.profile-section-image-parent {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.profile-section-content {
+	margin-top: -10vw !important;
+	padding-top: 10vw !important;
 }

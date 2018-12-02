@@ -7,7 +7,10 @@
 		{% endblock %}
 		{% include "brevehome/head.html" %}
 	</head>
+	{% block overridebody %}
+	{% block bodytag %}
 	<body class="bg-tan-light text-ash-dark">
+	{% endblock %}
 		{% include "brevehome/nav.html" %}
 		<div class="main-page-container">
 			<div class="main-page-container-content container-fluid">
@@ -19,5 +22,6 @@
 		</footer>
 		</div>
 	</body>
+	{% endblock %}
 </html>
 
