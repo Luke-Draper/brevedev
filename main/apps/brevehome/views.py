@@ -32,15 +32,15 @@ def signup(request):
 
 def login_submit(request):
 	request.session["test_logged_in"] = True
-	return redirect("/test/dashboard")
+	return redirect("/dashboard")
 
 def signup_submit(request):
 	request.session["test_logged_in"] = True
-	return redirect("/test/dashboard")
+	return redirect("/dashboard")
 
 def logout(request):
 	request.session["test_logged_in"] = False
-	return redirect("/test")
+	return redirect("/")
 
 def dashboard(request):
 	check_session_login(request)
