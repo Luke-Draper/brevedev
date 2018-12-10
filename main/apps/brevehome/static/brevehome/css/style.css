@@ -447,6 +447,12 @@ a.text-ash-dark:hover {
 
 /* Layout */
 
+.messages {
+	position: fixed !important;
+	top: 6rem;
+	left: 6rem;
+}
+
 .main-page-container {
 	padding-top: 4em;
 	height: 100vh !important;

@@ -1,22 +1,57 @@
 from __future__ import unicode_literals
 from django.db import models
+from datetime import datetime 
+from django.contrib.auth.hashers import is_password_usable, make_password,check_password
 import re
 
 class UserManager(models.Manager):
 	def basic_validator(self, postData):
 		errors = {}
 
+		try:
+			datetime.strptime(postData['birthday'],'%Y-%m-%d')
+		except:
+			errors["email"] = "Invalid birthday"
 		if len(postData['first_name']) < 0:
 			errors["first_name"] = "First Name cannot be empty"
 		if len(postData['last_name']) < 0:
 			errors["last_name"] = "Last Name cannot be empty"
-		if len(postData['email']) < 0:
-			errors["email"] = "Email cannot be empty"
-		if re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$',postData['email']) == None:
-			errors["email"] = "Email format is invalid"
-		if len(postData['password']) < 8:
-			errors["password"] = "Password must have at least 8 characters"
-		
+		try:
+			test_user = User.objects.get(email=postData["email"])
+			errors["email"] = "A user with this email already exists"
+		except:
+			if len(postData['email']) < 0:
+				errors["email"] = "Email cannot be empty"
+			elif re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$',postData['email']) == None:
+				errors["email"] = "Email format is invalid"
+		if len(postData['birthday']) < 0:
+			errors["birthday"] = "Birthday cannot be empty"
+		if postData['password'] != postData['confirm_password']:
+			errors["confirm_password"] = "Password and Confirm Password must match"
+		test_password = make_password(postData['password'])
+		if not is_password_usable(test_password):
+			errors["password"] = "Password is invalid"
+		return errors
+	
+	def create_user(self,postData):
+		user = self.create(first_name=postData['first_name'],
+		last_name=postData['last_name'],
+		email=postData['email'],
+		birthday=datetime.strptime(postData['birthday'],'%Y-%m-%d'),
+		drink_preference=postData['beverage_preference'],
+		public=postData['visibility'],
+		password=make_password(postData['password']),
+		desc="",
+		linkedin_url="",
+		facebook_url="",
+		instagram_url="",
+		youtube_url="",
+		twitter_url="",
+		blog_url="")
+		return user
+
+	def test_login(self,test_user,test_password):
+		return check_password(test_password, test_user.password)
 
 class GroupManager(models.Manager):
 	def basic_validator(self, postData):
@@ -28,6 +63,7 @@ class GroupManager(models.Manager):
 			errors["desc"] = "Description must have at least 50 characters"
 		if len(postData['email']) < 0:
 			errors["email"] = "Email cannot be empty"
+		return errors
 
 class EventManager(models.Manager):
 	def basic_validator(self, postData):
@@ -39,6 +75,7 @@ class EventManager(models.Manager):
 			errors["desc"] = "Description must have at least 50 characters"
 		if postData['capacity'] < 0:
 			errors["capacity"] = "Must include a capacity size"
+		return errors
 
 class LocationManager(models.Manager):
 	def basic_validator(self, postData):
@@ -56,14 +93,15 @@ class LocationManager(models.Manager):
 			errors["zip_code"] = "Zip Code cannot be empty"
 		if len(postData['country']) < 50:
 			errors["country"] = "Country cannot be empty"
+		return errors
 		
-
 class CommentManager(models.Manager):
 	def basic_validator(self, postData):
 		errors = {}
 
 		if len(postData['content']) < 0:
 			errors["content"] = "Comment cannot be empty"
+		return errors
 
 class User(models.Model):
 	first_name = models.CharField(max_length=255)
@@ -79,6 +117,7 @@ class User(models.Model):
 	twitter_url = models.CharField(max_length=255)
 	blog_url = models.CharField(max_length=255)
 	public = models.BooleanField()
+	friend_requests = models.ManyToManyField('self')
 	friends = models.ManyToManyField('self')
 	profile_picture = models.BinaryField()
 	DRINK_PREFERENCES = (
